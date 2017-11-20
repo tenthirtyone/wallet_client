@@ -46,7 +46,7 @@
     "no-unused-vars": 2,
     "max-params": [
       2,
-      4
+      6
     ],
     "max-statements": [
       2,
