@@ -1,9 +1,9 @@
 'use strict';
 
-const mkdirp                        = require('mkdirp');
+const mkdirp = require('mkdirp');
 const { writeFileSync, existsSync } = require('fs');
-const { homedir }                   = require('os');
-const { join }                      = require('path');
+const { homedir } = require('os');
+const { join } = require('path');
 
 const datadir = join(homedir(), '.config/walletclient');
 
@@ -13,9 +13,9 @@ module.exports = {
   },
   FileStorage: {
     saveDir: homedir(),
-    fileName: 'default-wallet.dat',
-    doNotOverwrite: true,
+    fileName: 'default-wallet-test.dat',
   }
+
 };
 
 if (!existsSync(join(datadir, 'config'))) {
