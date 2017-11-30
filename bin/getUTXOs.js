@@ -23,26 +23,20 @@ fs.readFile('./wallet.json', (err, data) => {
   let wallet = json.wallet || [];
 
   wallet.keys.forEach(key => {
-    console.log(key.addr);
     queue.push(key.addr);
   })
 
-  console.log(queue.length);
 
   getUTXOs();
 })
 
 socket.on('complete',  () => {
-  completeCounter++;
-
-  if (addrCounter === completeCounter) {
-    console.log('finished receiving utxos');
-    saveUTXOs();
-  }
+  getUTXOs();
 });
 
 // Receive a utxo from the server
 socket.on('send:utxo',  (data)=> {
+  console.log(data)
   let utxo = {
     'txId': data.utxo.hash,
     'outputIndex': data.utxo.index,
@@ -51,7 +45,7 @@ socket.on('send:utxo',  (data)=> {
     'satoshis': data.utxo.value
   }
   utxos.push(utxo);
-  getUTXOs();
+
 });
 
 socket.on('disconnect',  () => { });
@@ -59,12 +53,18 @@ socket.on('disconnect',  () => { });
 // Take an item from the queue and get the
 function getUTXOs() {
   // Baaaaaaaaaad
-  if (queue.length) {
+  console.log('getUTXOs')
+  console.log(queue.length)
+  if (queue.length > 0) {
     let addr = queue.pop();
+    console.log(addr)
     addrCounter++;
     socket.emit('queue:addr', {
       addr: addr
     });
+  } else {
+    console.log('finished receiving utxos');
+    saveUTXOs();
   }
 }
 

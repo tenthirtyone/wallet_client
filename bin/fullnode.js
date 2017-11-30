@@ -27,7 +27,7 @@ const node = new FullNode({
   nodes: '127.0.0.1:20000'
 });
 
-(async () => {
+(async() => {
   await node.open();
   await node.connect();
 
@@ -36,8 +36,8 @@ const node = new FullNode({
   io.on('connection', (socket) => {
     console.log('connection');
 
-    socket.on('queue:addr', async (data) => {
-	console.log(data.addr)
+    socket.on('queue:addr', async(data) => {
+      console.log(data.addr)
       let coins = await node.getCoinsByAddress(data.addr);
       coins.forEach(utxo => {
         utxo.addr = data.addr;
