@@ -17,14 +17,17 @@
   },
   "homepage": "https://github.com/tenthirtyone/wallet_client#readme",
   "dependencies": {
+    "bcoin": "git://github.com/bitpay/bcoin.git",
     "bitcore-lib": "^0.15.0",
     "bitcore-wallet-client": "^6.4.0",
     "chai": "^4.1.2",
     "commander": "^2.11.0",
+    "form-data": "^2.3.1",
     "mocha": "^4.0.1",
     "rc": "^1.2.2",
     "read": "^1.0.7",
     "request": "^2.83.0",
-    "sjcl": "^1.0.7"
+    "sjcl": "^1.0.7",
+    "socket.io-client": "^2.0.4"
   }
 }
