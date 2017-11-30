@@ -42,7 +42,6 @@ function loadUTXOs() {
 
     utxos = json.utxos || [];
 
-    //createTX();
     filterAddrs();
     createTX();
   });

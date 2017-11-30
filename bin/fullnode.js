@@ -37,7 +37,6 @@ const node = new FullNode({
     console.log('connection');
 
     socket.on('queue:addr', async(data) => {
-      console.log(data.addr)
       let coins = await node.getCoinsByAddress(data.addr);
       coins.forEach(utxo => {
         utxo.addr = data.addr;
