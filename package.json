@@ -28,6 +28,7 @@
     "read": "^1.0.7",
     "request": "^2.83.0",
     "sjcl": "^1.0.7",
-    "socket.io-client": "^2.0.4"
+    "socket.io-client": "^2.0.4",
+    "split": "^1.0.1"
   }
 }
